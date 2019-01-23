@@ -1,4 +1,6 @@
-package com.epam.brest.course;
+package com.epam.brest.course.model;
+
+import com.epam.brest.course.dataProvider.DataProvider;
 
 import java.math.BigDecimal;
 
@@ -10,7 +12,10 @@ public class DeliveryCost {
     private BigDecimal weight;
     private BigDecimal deliveryDistance;
 
+    private DataProvider dataProvider;
+
     public DeliveryCost() {
+        dataProvider = new DataProvider("app.properties");
     }
 
     public BigDecimal getWeight() {
@@ -34,6 +39,6 @@ public class DeliveryCost {
     }
 
     public BigDecimal finalCost() {
-        return deliveryDistance.multiply(weight);
+        return deliveryDistance.multiply(weight.multiply(dataProvider.getCoefficientDelivery()));
     }
 }

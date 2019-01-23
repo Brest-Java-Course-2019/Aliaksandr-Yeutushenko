@@ -1,4 +1,6 @@
-package com.epam.brest.course;
+package com.epam.brest.course.menu;
+
+import com.epam.brest.course.model.DeliveryCost;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -16,10 +18,11 @@ public class ConsoleUserInterface {
 
     public void showMenu() {
         System.out.println("+--------------------menu-----------------+");
-        if (!inputWeight())
-            System.exit(-1);
-        if (!inputDistance())
-            System.exit(-1);
+        while (!inputWeight())
+            exit();
+
+        while (!inputDistance())
+            exit();
         System.out.println("|  The final delivery cost is: " + deliveryCost.finalCost() + "$\t       |");
         System.out.println("+-----------------------------------------+");
     }
@@ -33,6 +36,13 @@ public class ConsoleUserInterface {
             System.out.println(ex.getMessage());
             return false;
         }
+    }
+
+    private void exit() {
+        System.out.println("|  You want to close app?(y/n)             |");
+        scanner.nextLine();
+        if (scanner.nextLine().equals("y"))
+            System.exit(0);
     }
 
     private boolean inputDistance() {
