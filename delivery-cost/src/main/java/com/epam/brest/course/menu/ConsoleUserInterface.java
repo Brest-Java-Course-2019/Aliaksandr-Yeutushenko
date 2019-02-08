@@ -68,7 +68,7 @@ public class ConsoleUserInterface {
         LOGGER.debug("Print agreement to exit the application.");
         System.out.println("|  You want to close app?(y/n)            |");
         scanner.nextLine();
-        if (scanner.nextLine().equals("y")){
+        if (scanner.nextLine().equals("y")) {
             LOGGER.debug("Close application.");
             System.exit(0);
         }

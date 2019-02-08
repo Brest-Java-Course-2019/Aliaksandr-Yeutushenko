@@ -44,14 +44,14 @@ public class DataFileProviderImpl implements DataProvider {
         try {
             inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
             if (inputStream == null) {
-                LOGGER.error("File with name = [{}] not found.", fileName );
+                LOGGER.error("File with name = [{}] not found.", fileName);
                 return;
             }
             properties.load(inputStream);
             inputStream.close();
 
         } catch (IOException ex) {
-            LOGGER.error("Error of reading file. Exception = [{}]",ex);
+            LOGGER.error("Error of reading file. Exception = [{}]", ex);
         }
     }
 }

@@ -22,7 +22,7 @@ public class CalculationImpl implements Calculation {
     }
 
     public BigDecimal calculateDeliveryCost(DeliveryCost deliveryCost) {
-        return deliveryCost.getDeliveryDistance().multiply( deliveryCost.getWeight().multiply(
+        return deliveryCost.getDeliveryDistance().multiply(deliveryCost.getWeight().multiply(
                 dataProvider.getCoefficientDeliveryPerKg()
                         .multiply(dataProvider.getCoefficientDeliveryPerKm())));
     }
